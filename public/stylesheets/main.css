@@ -1,0 +1,85 @@
+
+/* *************** layout ***************  */
+body {
+	background-color: white;
+}
+
+/* *************** home page grids ***************  */
+.navbar {
+	background-color: white;
+	margin-left: 50px;
+}
+
+.index-wrapper {
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-gap: 10px;
+}
+
+.box {
+  border-radius: 5px;
+  border-color: black;
+  padding: 20px;
+  font-size: 120%;
+  /*border: 1px solid black;*/
+}
+	.a {
+  	grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 10;
+  }
+  .b {
+	  grid-column-start: 6;
+	  grid-column-end: 7;
+	  grid-row-start: 1;
+	  grid-row-end: 2;
+  }
+  .c {
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 4;
+  }
+
+  .d {
+  	grid-column-end: 10;
+    grid-row-end: 10;
+	  border: 0px solid black;
+  }
+
+
+.index-date {
+	font-size: 1.5em;
+}
+
+.index-title {
+	font-size: 1.2em;
+}
+/* *************** home page grids ***************  */
+
+
+
+/* *************** about ***************  */
+
+.about {
+	margin: 0 200px;
+	text-align: center;
+  font-size: 120%;
+}
+
+.about > img {
+	width: 20%;
+}
+
+/* *************** about ***************  */
+
+
+
+/*.login {
+	display: inline-block; 
+}
+
+.login > form {
+	display: inline-block; 
+}*/

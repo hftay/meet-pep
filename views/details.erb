@@ -1,0 +1,61 @@
+<div class="details">
+
+	<%= @game.title %>
+
+	<div>
+	Hosted by: <%= @game.user.username %>
+	</div>
+
+	<div>
+	<%= @game.date.localtime.strftime("%A, %d %b %y, %H:%M") %>
+	</div>
+
+	<div>
+	<%= @game.venue %>
+	</div>
+
+	<div>
+	<%= @game.image_url %>
+	</div>
+
+
+	<div>
+	<%= @game.description %>
+	</div>
+	
+	<%if user_is_creator?%>
+		<form action="/game/<%= @game.id %>/edit" method="get">
+			<button type="submit">Edit</button>
+		</form>
+
+		<form action="/game/<%= @game.id %>/delete" method="get">
+			<button type="submit">Delete</button>
+		</form>
+	<%end%>
+
+	<%if logged_in? && !user_already_rsvp? %>
+		<form action="/game/<%= @game.id %>" method="post">
+			<input type="hidden" name="_method" value="put">
+			<button type="submit">Join</button>
+		</form>
+	<%end%>
+
+	<%if logged_in? && !!user_already_rsvp? %>
+		<form action="/game/<%= @game.id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<button type="submit">Leave</button>
+		</form>
+	<%end%>
+
+	<div> 
+		<div>Number of people going: <%= @rsvps.count %> </div>  
+		<div>Who's going?</div>
+		<% @rsvps.each do |rsvp| %>
+			<div> <%= User.find_by(id: rsvp.user).username %> </div>
+		<%end%>
+
+	</div>
+
+</div>
+
+

@@ -1,0 +1,22 @@
+
+<h1>Sign In</h1>
+
+<form action="/session" name="" method="post">
+	<label for="">Email</label>
+	<input name="email"	value="" type="text">
+
+
+	<label for="">Password</label>
+	<input name="password" value="" type="password">
+
+	<button type="submit">LOGIN</button>
+</form>
+
+<em>
+<%= @error_message %>
+</em>
+
+
+
+Need a new account?
+<a href="/signup">Sign Up</a>

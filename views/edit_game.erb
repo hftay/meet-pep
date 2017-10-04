@@ -1,0 +1,20 @@
+Edit:
+
+<div class="edit">
+
+<form action="/game/<%= @game.id %>/edit" method="post">
+	<input type="hidden" name="_method" value="put">
+
+	<div> Title: <input type="text" name="title" value="<%= @game.title %>"></div>
+	<div> Date:  <input type="date" name="date" value="<%= @game.date.localtime.strftime("%Y-%m-%d") %>"></div>
+	<div> Time:  <input type="time" name="time" value="<%= @game.date.localtime.strftime("%H:%M") %>"></div>
+	<div> Description:  <input type="text" name="description" value="<%= @game.description %>"></div>
+	<div> Venue:  <input type="text" name="venue" value="<%= @game.venue %>"></div>
+	<div> Image_URL: <input type="text" name="image_url" value="<%= @game.image_url %>"></div>
+		
+	<button type="submit">Update</button>
+</form>
+
+
+</div>
+

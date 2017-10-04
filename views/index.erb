@@ -1,0 +1,45 @@
+
+
+<div class="index-wrapper">
+
+
+<div class="box a">
+<h1>Pep's List</h1>
+<% @games.each do |game| %>
+		<div class="index-date"> <%= game.date.localtime.strftime("%A, %d %b %y, %H:%M") %> </div>
+		<div> 
+			<a class="index-title" href="/game/<%= game.id %>"> <%= game.title %> </a>
+			<%= game.venue %> 
+		</div>
+		<hr>
+<%end%>
+</div>
+
+<div class="box b">
+<%if logged_in? %>
+
+<h1>You're going to: </h1>
+<% @rsvps.each do |rsvp| %>
+  <li> <%= rsvp.game.title %> </li>
+<%end%>
+<%end%>
+
+</div>
+
+<div class="box c">
+<%if logged_in? %>
+
+<h1>You're hosting:</h1>
+<% @hosted.each do |host| %>
+  <li> <%= host.title %> </li>
+<%end%>
+<%end%>
+
+</div>
+
+<div class="box d"></div>
+
+
+
+
+</div>
