@@ -18,26 +18,28 @@ CREATE TABLE games (
 );
 -- ALTER TABLE games ALTER date TYPE timestamp WITH time zone;
 
+-- Rsvp belong to users and game. rsvp.game
 CREATE TABLE rsvps (
 	id SERIAL4 PRIMARY KEY,
 	user_id INTEGER,
 	game_id INTEGER
 );
 
-CREATE TABLE stats (
+-- leagues belong to User
+CREATE TABLE leagues (
 	id SERIAL4 PRIMARY KEY,
-	title VARCHAR (200),
+	title VARCHAR (200) NOT NULL,
+	user_id INTEGER
+);
+
+-- leaguestats belong to League. leaguestats.league
+CREATE TABLE leaguestats (
+	id SERIAL4 PRIMARY KEY,
+	league_id INTEGER,
 	user_id INTEGER,
-	user_username VARCHAR (50),
 	goals INTEGER,
 	assists INTEGER,
 	games_won INTEGER
-);
-
-CREATE TABLE game_types (
-	id SERIAL4 PRIMARY KEY,
-	game_id INTEGER,
-	type VARCHAR(200)
 );
 
 
@@ -55,7 +57,3 @@ INSERT INTO users (username, email) VALUES ('petr1', 'petr@gmail.com');
 INSERT INTO rsvps (game_id, user_id) VALUES (1,1);
 
 
--- Leagues belong to users
-
-
--- Player stats belong to Leagues

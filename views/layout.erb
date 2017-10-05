@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pep</title>
+  <title>Meet Pep</title>
   <link rel="icon" type="image/x-icon" href="images/goatee_pep.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel='stylesheet' href='/stylesheets/main.css'>
@@ -14,8 +14,8 @@
 		<!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
 
 		<!-- navbar image -->
-	  <a class="navbar-brand" href="/">
-	    <img src="images/goatee_pep.png" width="50" height="50" alt="pep image">
+	  <a class="navbar-brand" href="/about">
+	    <img src="images/goatee_pep.png" width="50" height="50" alt="">
 	  </a>
 
 
@@ -25,7 +25,7 @@
 			<a class="nav-item nav-link" href="/login">Login</a>
 		<%end%>
 		<%if logged_in? %>
-			<a class="nav-item nav-link" href="/create">Create</a>
+			<a class="nav-item nav-link" href="/create">Create Event</a>
 			<a class="nav-item nav-link" href="/my_games">My Upcoming Events</a>
 			<%= current_user.username %>
 			<form class="nav-item nav-link" action="/session" method="post">

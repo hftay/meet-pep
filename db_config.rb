@@ -5,9 +5,9 @@ require 'active_record'
 ActiveRecord::Base.establish_connection( ENV['DATABASE_URL'] || options)
 
 # if not, then use options
-options = {
-	adapter: 'postgresql',
-	database: 'pepknows',
-}
+# options = {
+# 	adapter: 'postgresql',
+# 	database: 'pepknows'
+# }
 
-ActiveRecord::Base.establish_connection(options)
+# ActiveRecord::Base.establish_connection(options)

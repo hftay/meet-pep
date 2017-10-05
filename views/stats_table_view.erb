@@ -1,50 +1,42 @@
-	<%= @stat.title %>
+<div class="stats-table-view-wrapper">
+  <div class="box a">
 
+    <h2> <%= @league.title %> </h2>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player Username</th>
+          <th>Games Won</th>
+          <th>Goals</th>
+          <th>Assists</th>
+        </tr>
+      </thead>
+      <tbody>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Player</th>
-      <th>Games Won</th>
-      <th>Goals</th>
-      <th>Assists</th>
-    </tr>
-  </thead>
-  <tbody>
+      <% @leaguestats.each do |leaguestat| %>
 
-    <tr>
-      <th scope="row">1</th>
-      <td> <%= @stat.user_username %> </td>
-      <td> <%= @stat.games_won %> </td>
-      <td> <%= @stat.goals %> </td>
-      <td> <%= @stat.assists %> </td>
-      <td>
-      	<a href="/stat/<%= @stat.id %>/table_edit">Edit</a>
-      </td>
-    </tr>
+        <tr>
+          <th scope="row">*</th>
+          <td> 
+            <%if leaguestat.user == nil %>
+              <%= leaguestat.user %> 
+            <%else%> 
+              <%= leaguestat.user.username %>
+            <%end%> 
+          </td>
+          <td> <%= leaguestat.games_won %> </td>
+          <td> <%= leaguestat.goals %> </td>
+          <td> <%= leaguestat.assists %> </td>
+        </tr>
 
+      <%end%>
 
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@fat</td>     
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@fat</td>        
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@fat</td>        
-    </tr>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+    <a class="btn btn-outline-primary btn-lg btn-block" href="/league/<%= @league.id %>/stats_table_edit">Edit</a>
+    <a class="btn btn-outline-primary btn-lg btn-block" href="/league_view">Return</a>
+
+  </div>
+</div>

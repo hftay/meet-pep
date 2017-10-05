@@ -1,0 +1,24 @@
+<div class="league-create-wrapper">
+
+	<div class="box a">
+
+		<h1>Leagues</h1>
+		<br>
+		<% @leagues.each do |league| %>
+				<a class="" href="/league/<%= league.id %>/stats_table_view"> <%= league.title %> </a>
+				
+				<a class="btn btn-primary" href="/league/<%= league.id %>/stats_table_edit">Edit </a>
+
+				<form style="display: inline-block" action="/league/<%= league.id %>/delete" method="post">
+					<input type="hidden" name="_method" value="delete">
+					<button class="btn btn-primary" type="submit">Delete</button>
+				</form>
+
+				<hr>
+		<%end%>
+
+		<a class="btn btn-outline-primary" href="/stats_home">Return</a>
+
+	</div>
+
+</div>

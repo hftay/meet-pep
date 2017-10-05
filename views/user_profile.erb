@@ -2,7 +2,7 @@
 <h2>Your Upcoming Events</h2>
 
 <% @rsvps.each do |rsvp| %>
-	<ul>
-  	<li> <%= rsvp.game.title %> </li>
-	</ul>
+  <div> <%= rsvp.game.date.localtime.strftime("%A, %d %b %y, %H:%M") %> </div>
+ 	<div> <%= rsvp.game.title %> </div>
+  <hr>
 <%end%>

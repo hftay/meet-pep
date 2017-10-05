@@ -6,11 +6,9 @@ require 'pg'
 require_relative 'db_config'
 require_relative 'models/game'
 require_relative 'models/user'
-require_relative 'models/GameType'
 require_relative 'models/rsvp'
-require_relative 'models/stat'
-
-
+require_relative 'models/league'
+require_relative 'models/leaguestat'
 
 enable :sessions # sinatra feature
 
@@ -52,7 +50,6 @@ end
 # ============ the game details page ================
 
 get '/game/:id' do
-	# binding.pry
   @game = Game.find(params[:id])
   @rsvps = Rsvp.where(game_id: params[:id])
 
@@ -109,7 +106,6 @@ end
 
 get '/game/:id/edit' do
   @game = Game.find(params[:id])
-  # binding.pry
   erb :edit_game
 end
 
@@ -125,7 +121,6 @@ put '/game/:id/edit' do
  	@game.image_url = params[:image_url]
  	@game.description = params[:description]
   @game.save
-  # binding.pry
   redirect "/game/#{params[:id]}"
 end
 
@@ -137,7 +132,6 @@ end
 
 delete '/game/:id/delete' do
   @game = Game.find(params[:id])
-  # binding.pry
   @game.destroy
   redirect '/'
 end
@@ -204,65 +198,64 @@ get '/stats_home' do
   erb :stats_home
 end
 
-get '/stats_create' do
-  erb :stats_create
+get '/league_create' do
+  erb :league_create
 end
 
-post '/stats_all_list_view' do
+post '/league_view' do
+  @league = League.new
+  @league.title = params[:title]
+  #add constraint: can only create table if logged in? so then you can add @league.user = current_user.id
+  @league.save
+  #will need to check for duplicate titles
   num_rows = params[:num_players].to_i
   num_rows.times do 
-    @s1 = Stat.new
-    @s1.title = params[:title]  
-    @s1.save
+    @leaguestat = Leaguestat.new
+    @leaguestat.league = @league
+    @leaguestat.save
+ 
   end
-  redirect '/stats_all_list_view'
+  redirect '/league_view'
 end
 
-# READ THIS
-# post '/stats_all_list_view' do
-#   @s1 = Stat.new
-#   @s1.title = params[:title]
-#   @s1.user_username = params[:user_username]
-#   ###########need to do SOME VALIDATIONS HERE -- params[:user_username] MUST exist else show error
-#   user = User.find_by(username: @s1.user_username)
-#   @s1.user_id = user.id
-#   @s1.save 
-#   redirect '/stats_all_list_view'
-# end
+get '/league_view' do
+  @leagues = League.all
+  erb :league_view
+end
 
-
-get '/stats_all_list_view' do
-  @stats = Stat.all
-  erb :stats_all_list_view
+delete '/league/:id/delete' do
+  @league = League.find(params[:id])
+  @league.destroy
+  redirect '/league_view'
 end
 
 
-delete '/stat/:id/delete' do
-  @stat = Stat.find(params[:id])
-  # binding.pry
-  @stat.destroy
-  redirect '/stats_all_list_view'
-end
 
-get '/stat/:id/table_view' do
-  @stat = Stat.find(params[:id])
-  # binding.pry
+get '/league/:id/stats_table_view' do
+  @league = League.find(params[:id])
+  @leaguestats = Leaguestat.where(league_id: @league.id)
   erb :stats_table_view
 end
 
+
 # ============ edit Player Stats page ================
-get '/stat/:id/table_edit' do
-  @stat = Stat.find(params[:id])
+get '/league/:id/stats_table_edit' do
+  @league = League.find(params[:id])
+  @leaguestats = Leaguestat.where(league_id: @league.id)
   erb :stats_table_edit
 end
 
-put '/stat/:id/table_edit' do
-  @stat = Stat.find(params[:id])
-  @stat.games_won = params[:games_won]
-  @stat.goals = params[:goals]
-  @stat.assists = params[:assists]
-  @stat.save
-  redirect "stat/#{params[:id]}/table_view"
+put '/league/:id/stats_table_edit' do
+  @league = League.find(params[:id])
+  @leaguestats = Leaguestat.where(league_id: @league.id)
+  @record_to_update = @leaguestats.find_by(id: params[:leaguestat_id])
+#need a validation to stop update if username is not in database
+  @record_to_update.user = User.find_by(username: params[:user_id])
+  @record_to_update.games_won = params[:games_won]
+  @record_to_update.goals = params[:goals]
+  @record_to_update.assists = params[:assists]
+  @record_to_update.save
+  redirect "league/#{params[:id]}/stats_table_view"
 end
 
 
