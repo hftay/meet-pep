@@ -53,3 +53,9 @@ INSERT INTO users (username, email) VALUES ('petr1', 'petr@gmail.com');
 # user passwords: 'pudding'
 
 INSERT INTO rsvps (game_id, user_id) VALUES (1,1);
+
+
+-- Leagues belong to users
+
+
+-- Player stats belong to Leagues
