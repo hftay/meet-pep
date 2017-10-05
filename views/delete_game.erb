@@ -1,31 +1,14 @@
-<div class="details">
+<div class="delete">
 
-	<%= @game.title %>
-
-	<div>
-	Hosted by: <%= @game.user.username %>
-	</div>
-
-	<div>
-	<%= @game.date.localtime %>
-	</div>
-
-	<div>
-	<%= @game.venue %>
-	</div>
-
-	<div>
-	<%= @game.image_url %>
-	</div>
-
-
-	<div>
-	<%= @game.description %>
-	</div>
+	<h3> <%= @game.title %> </h3>
+	<div> Hosted by: <%= @game.user.username %> </div>
+	<div> <%= @game.date.localtime %> </div>
+	<div>	<%= @game.venue %> </div>
+	<div>	<%= @game.image_url %> </div>
+	<div>	<%= @game.description %> </div>
 
 	
 	<%if user_is_creator?%>
-
 		<em>Confirm delete?</em>
 		<form action="/game/<%= @game.id %>/delete" method="post">
 			<input type="hidden" name="_method" value="delete">

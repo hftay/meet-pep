@@ -42,16 +42,9 @@ CREATE TABLE leaguestats (
 	games_won INTEGER
 );
 
-
--- comments: id / body / user_id / games_id
-
 INSERT INTO games (title, venue, user_id) VALUES ('Monday Night Football', 'Albert Park', 1);
 
 INSERT INTO users (username, email) VALUES ('dt50', 'dt@ga.co');
-INSERT INTO users (username, email) VALUES ('bernie', 'bernie@unimelb.edu.au');
-INSERT INTO users (username, email) VALUES ('ozil10', 'ozil@gmail.com');
-INSERT INTO users (username, email) VALUES ('alexis7', 'alexis@gmail.com');
-INSERT INTO users (username, email) VALUES ('petr1', 'petr@gmail.com');
 # user passwords: 'pudding'
 
 INSERT INTO rsvps (game_id, user_id) VALUES (1,1);
