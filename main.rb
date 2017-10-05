@@ -95,7 +95,7 @@ post '/signup' do
   if params[:password_digest] == params[:verify_password]
     user.password = params[:password_digest]
     user.save
-    redirect "/login"
+    redirect "/"
   else
     @error_message = "Error, please try again"
     erb :signup

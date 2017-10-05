@@ -1,10 +1,10 @@
 GA Week 6:  
 Project #2: Building Your First Full-stack Application  
-Project Timeframe: 3.5 days  
+Project timeframe: 3.5 days  
 
-Project Objective: 
-Primary: Build a full-stack database backed application using Sinatra.
-Secondary: Practise back-end aspect of programming recently learned, e.g. data-modeling and the use of object-relational models.
+Project objective:  
+Primary: Build a full-stack database backed application using Sinatra.  
+Secondary: Practise back-end aspect of programming, e.g. data-modeling and the use of object-relational models.
 
 App summary:
 Pep is a community platform for social sports! (similar to meetup.com but for sports)
