@@ -15,27 +15,26 @@
 
 		<!-- navbar image -->
 	  <a class="navbar-brand" href="/">
-	    <img src="images/goatee_pep.png" width="50" height="50" alt="">
+	    <img src="images/goatee_pep.png" width="50" height="50" alt="pep image">
 	  </a>
 
 
 		<a class="nav-item nav-link" href="/">Home</a>
 
-		<a class="nav-item nav-link" href="/create">Create</a>
+		<%if !logged_in? %>
+			<a class="nav-item nav-link" href="/login">Login</a>
+		<%end%>
+		<%if logged_in? %>
+			<a class="nav-item nav-link" href="/create">Create</a>
+			<a class="nav-item nav-link" href="/my_games">My Upcoming Events</a>
+			<%= current_user.username %>
+			<form class="nav-item nav-link" action="/session" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<button class="btn btn-primary">Logout</button>
+			</form>
+		<%end%>
 
-		<!-- <div class="login"> -->
-			<%if !logged_in? %>
-				<a class="nav-item nav-link" href="/login">Login</a>
-			<%end%>
-			<%if logged_in? %>
-				<a class="nav-item nav-link" href="/my_games">My Upcoming Events</a>
-				<%= current_user.email %>
-				<form class="nav-item nav-link" action="/session" method="post">
-					<input type="hidden" name="_method" value="delete">
-					<button class="btn btn-primary">Logout</button>
-				</form>
-			<%end%>
-		<!-- </div> -->
+		<a class="nav-item nav-link" href="/stats_home"> Stats (Beta) </a>
 
 		<!-- </div> -->
 	</nav>

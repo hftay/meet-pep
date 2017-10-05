@@ -1,6 +1,6 @@
      
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'pry'
 require 'pg'
 require_relative 'db_config'
@@ -8,6 +8,7 @@ require_relative 'models/game'
 require_relative 'models/user'
 require_relative 'models/GameType'
 require_relative 'models/rsvp'
+require_relative 'models/stat'
 
 
 
@@ -33,7 +34,7 @@ helpers do # sinatra feature, create global(?) helpers methods
 
 end
 
-# ============ the home page ================
+# ============ the home/index page ================
 
 get '/' do
   @games = Game.all
@@ -46,10 +47,7 @@ get '/' do
   else
     erb :about
   end
-
 end
-
-
 
 # ============ the game details page ================
 
@@ -61,14 +59,12 @@ get '/game/:id' do
   erb :details
 end
 
-
-
 # ============ the user login page ================
 get '/login' do
 	@error_message =''
-	if !logged_in?
-		@error_message = 'Please log in or sign up to create a game.'
-	end
+	# if !logged_in?
+	# 	@error_message = 'Please log in or sign up to create a game.'
+	# end
   erb :login
 end
 
@@ -88,6 +84,26 @@ delete '/session' do # logout
 	redirect '/login'
 end
 
+# ============ get signup page ================
+
+get '/signup' do
+  @error_message =''
+  erb :signup
+end
+
+post '/signup' do
+  user = User.new
+  user.username = params[:username]   
+  user.email = params[:email]
+  if params[:password_digest] == params[:verify_password]
+    user.password = params[:password_digest]
+    user.save
+    redirect "/login"
+  else
+    @error_message = "Error, please try again"
+    erb :signup
+  end
+end
 
 # ============ the creator access to game edit page ================
 
@@ -150,8 +166,6 @@ post '/' do
 	redirect '/'
 end
 
-
-
 # ============ rsvp to game page ================
 
 put '/game/:id' do
@@ -168,7 +182,6 @@ delete '/game/:id' do
   redirect "/game/#{params[:id]}" # back to details page
 end
 
-
 # ============ get user's upcoming games page ================
 
 get '/my_games' do
@@ -179,7 +192,77 @@ end
 # ============ get About Pep page ================
 
 get '/about' do
-  "Hello World"
   erb :about
 end
+
+
+
+# ============ STATS STATS STATS ================
+# ============ get Stats page ================
+
+get '/stats_home' do
+  erb :stats_home
+end
+
+get '/stats_create' do
+  erb :stats_create
+end
+
+post '/stats_all_list_view' do
+  num_rows = params[:num_players].to_i
+  num_rows.times do 
+    @s1 = Stat.new
+    @s1.title = params[:title]  
+    @s1.save
+  end
+  redirect '/stats_all_list_view'
+end
+
+# READ THIS
+# post '/stats_all_list_view' do
+#   @s1 = Stat.new
+#   @s1.title = params[:title]
+#   @s1.user_username = params[:user_username]
+#   ###########need to do SOME VALIDATIONS HERE -- params[:user_username] MUST exist else show error
+#   user = User.find_by(username: @s1.user_username)
+#   @s1.user_id = user.id
+#   @s1.save 
+#   redirect '/stats_all_list_view'
+# end
+
+
+get '/stats_all_list_view' do
+  @stats = Stat.all
+  erb :stats_all_list_view
+end
+
+
+delete '/stat/:id/delete' do
+  @stat = Stat.find(params[:id])
+  # binding.pry
+  @stat.destroy
+  redirect '/stats_all_list_view'
+end
+
+get '/stat/:id/table_view' do
+  @stat = Stat.find(params[:id])
+  # binding.pry
+  erb :stats_table_view
+end
+
+# ============ edit Player Stats page ================
+get '/stat/:id/table_edit' do
+  @stat = Stat.find(params[:id])
+  erb :stats_table_edit
+end
+
+put '/stat/:id/table_edit' do
+  @stat = Stat.find(params[:id])
+  @stat.games_won = params[:games_won]
+  @stat.goals = params[:goals]
+  @stat.assists = params[:assists]
+  @stat.save
+  redirect "stat/#{params[:id]}/table_view"
+end
+
 

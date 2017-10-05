@@ -24,20 +24,26 @@ CREATE TABLE rsvps (
 	game_id INTEGER
 );
 
+CREATE TABLE stats (
+	id SERIAL4 PRIMARY KEY,
+	title VARCHAR (200),
+	user_id INTEGER,
+	user_username VARCHAR (50),
+	goals INTEGER,
+	assists INTEGER,
+	games_won INTEGER
+);
+
 CREATE TABLE game_types (
 	id SERIAL4 PRIMARY KEY,
-	sport VARCHAR(200)
+	game_id INTEGER,
+	type VARCHAR(200)
 );
 
 
 -- comments: id / body / user_id / games_id
 
 INSERT INTO games (title, venue, user_id) VALUES ('Monday Night Football', 'Albert Park', 1);
-INSERT INTO games (title, venue, user_id) VALUES ('Tuesday Night Football', 'Kensington Sports Hall', 1);
-INSERT INTO games (title, venue, user_id) VALUES ('Tuesday Late Night Football', 'Flagstaff Garden', 1);
-INSERT INTO games (title, venue, user_id) VALUES ('Wednesday Poker League', '22 Bouverie Street', 2);
-INSERT INTO games (title, venue, user_id) VALUES ('High Stakes Poker', '22 Bouverie Street', 2);
-
 
 INSERT INTO users (username, email) VALUES ('dt50', 'dt@ga.co');
 INSERT INTO users (username, email) VALUES ('bernie', 'bernie@unimelb.edu.au');
@@ -47,4 +53,3 @@ INSERT INTO users (username, email) VALUES ('petr1', 'petr@gmail.com');
 # user passwords: 'pudding'
 
 INSERT INTO rsvps (game_id, user_id) VALUES (1,1);
-INSERT INTO rsvps (game_id, user_id) VALUES (1,2);

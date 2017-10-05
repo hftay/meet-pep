@@ -1,18 +1,21 @@
 
-/* *************** layout ***************  */
+/* *************** layout all ***************  */
 body {
 	background-color: white;
+  /*background-image: linear-gradient(to top, #6d8aa0, #8ba2b4);*/
+  /*background-image: radial-gradient(circle at center, red 0, blue, green 100%);*/
 }
 
-/* *************** home page grids ***************  */
 .navbar {
-	background-color: white;
-	margin-left: 50px;
+  background-color: white;
+  /*margin-left: 50px;*/
 }
+/* *************** home page grids ***************  */
+
 
 .index-wrapper {
   display: grid;
-  grid-template-columns: 50px 50px 50px;
+  grid-template-columns: 50px 2fr 1fr 150px;
   grid-gap: 10px;
 }
 
@@ -25,27 +28,21 @@ body {
 }
 	.a {
   	grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 10;
   }
   .b {
-	  grid-column-start: 6;
-	  grid-column-end: 7;
+	  grid-column-start: 3;
+	  grid-column-end: 3;
 	  grid-row-start: 1;
 	  grid-row-end: 2;
   }
   .c {
-    grid-column-start: 6;
-    grid-column-end: 7;
+    grid-column-start: 3;
+    grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 4;
-  }
-
-  .d {
-  	grid-column-end: 10;
-    grid-row-end: 10;
-	  border: 0px solid black;
   }
 
 
@@ -56,12 +53,70 @@ body {
 .index-title {
 	font-size: 1.2em;
 }
-/* *************** home page grids ***************  */
 
+/* *************** create page grids ***************  */
+.create-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-gap: 10px;
+}
+
+.create-wrapper > .box {
+  border-radius: 5px;
+  border-color: black;
+  padding: 20px;
+  font-size: 120%;
+  border: 1px solid black;
+}
+
+.create-wrapper > .a {
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+/* *************** login page grids ***************  */
+
+.login-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-gap: 10px;
+}
+
+.login-wrapper > .box {
+  border-radius: 5px;
+  border-color: black;
+  padding: 20px;
+  font-size: 120%;
+  border: 1px solid black;
+}
+
+.login-wrapper > .a {
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+
+/* *************** signup page grids ***************  */
+
+.signup-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.signup-wrapper > .box {
+  border-radius: 5px;
+  border-color: black;
+  padding: 20px;
+  font-size: 120%;
+  border: 1px solid black;
+}
+
+.signup-wrapper > .a {
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
 
 
 /* *************** about ***************  */
-
 .about {
 	margin: 0 200px;
 	text-align: center;
@@ -71,8 +126,7 @@ body {
 .about > img {
 	width: 20%;
 }
-
-/* *************** about ***************  */
+/* *************** *************** ***************  */
 
 
 

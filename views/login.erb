@@ -1,22 +1,34 @@
+<div class="login-wrapper">
 
-<h1>Sign In</h1>
+	<div class="box a">
 
-<form action="/session" name="" method="post">
-	<label for="">Email</label>
-	<input name="email"	value="" type="text">
+		<h1>Sign In</h1>
 
+		<form action="/session" name="" method="post">
 
-	<label for="">Password</label>
-	<input name="password" value="" type="password">
+			<div class="form-group row">
+				
+				<label class="col-sm-3 col-form-label">Email:</label>	
+				<div class="col-sm-9">
+					<input class="form-control" type="text" name="email" placeholder="">
+				</div>
 
-	<button type="submit">LOGIN</button>
-</form>
+				<label class="col-sm-3 col-form-label">Password:</label>	
+				<div class="col-sm-9">
+					<input class="form-control" type="password" name="password" placeholder="">
+					<br>
+				</div>
 
-<em>
-<%= @error_message %>
-</em>
+				<button class="btn btn-primary btn-lg btn-block" type="submit">LOGIN</button>
+			
+			</div>
 
+		</form>
 
+		<em style="color: grey"> <%= @error_message %> </em>
 
-Need a new account?
-<a href="/signup">Sign Up</a>
+		<div>Need an account? <a href="/signup">Sign Up</a> </div>
+	
+	</div>
+
+</div>

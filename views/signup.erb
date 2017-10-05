@@ -1,0 +1,42 @@
+<div class="signup-wrapper">
+
+	<div class="box a">
+
+		<h1>Sign Up</h1>
+
+		<form action="/signup" method="post">
+
+			<div class="form-group row">
+
+				<label class="col-sm-3 col-form-label">Username:</label>	
+				<div class="col-sm-9">
+					<input class="form-control" type="text" name="username" placeholder="username">
+				</div>
+
+				<label class="col-sm-3 col-form-label">Email:</label>	
+				<div class="col-sm-9">
+					<input class="form-control" type="text" name="email" placeholder="email address">
+				</div>
+
+				<label class="col-sm-3 col-form-label">Password:</label>	
+				<div class="col-sm-9">
+					<input class="form-control" type="password" name="password_digest" placeholder="password">
+				</div>
+
+				<label class="col-sm-3 col-form-label"></label>	
+				<div class="col-sm-9">
+					<input class="form-control" type="password" name="verify_password" placeholder="re-enter password">
+					<br>
+				</div>
+
+				<button class="btn btn-primary btn-lg btn-block" type="submit">Sign Up</button>
+
+			</div>
+
+			<em style="color: red"> <%= @error_message %> </em>
+
+		</form>
+
+	</div>
+
+</div>

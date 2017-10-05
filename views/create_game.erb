@@ -1,22 +1,56 @@
-Create Game
 
-<div class="create">
+<div class="create-wrapper">
 
-<form action="/" method="post">
+	<div class="box a">
+		<h1>Tell Pep...</h1>
 
-	<div>Title: 			<input type="text" name="title" value=""></div>
-	<div>Date:  			<input type="date" name="date" 	value=""></div>
-	<div>Time:  			<input type="time" name="time" value=""></div>
-	<div>Venue:  			<input type="text" name="venue" value=""></div>
-	<div>Description:	<input type="text" name="description" value=""></div>
-	<div>Image_URL: 	<input type="text" name="image_url" value=""></div>
+		<form action="/" method="post">
+
+			<div class="form-group row">
+				<label for="title" class="col-sm-2 col-form-label">Title:</label>	
+				<div class="col-sm-10">
+					<input class="form-control" type="text" name="title" placeholder="...the name of the event?">
+				</div>
+
+				<label for="date" class="col-sm-2 col-form-label">Date:</label>	
+				<div class="col-sm-10">
+					<input class="form-control" type="date" name="date" placeholder="">
+				</div>
+
+				<label for="time" class="col-sm-2 col-form-label">Time:</label>	
+				<div class="col-sm-10">
+					<input class="form-control" type="time" name="time" placeholder="">
+				</div>
+
+				<label for="venue" class="col-sm-2 col-form-label">Venue:</label>	
+				<div class="col-sm-10">
+					<input class="form-control" type="text" name="venue" placeholder="...the name of the venue?">
+				</div>
+
+				<label for="description" class="col-sm-2 col-form-label">Description:</label>	
+				<div class="col-sm-10">
+					<input class="form-control" type="text" name="description" placeholder="...the name of the description?">
+				</div>
+
+				<label for="image_url" class="col-sm-2 col-form-label">Image URL:</label>	
+				<div class="col-sm-10">
+					<input class="form-control" type="text" name="image_url" placeholder="...paste url here?">
+				</div>
+
+			</div>
+
+			<br>
 		
-	<button type="submit">Create</button>
-</form>
+			<button class="btn btn-primary btn-lg btn-block" type="submit">Create</button>
+		</form>
+		
+		<br>
 
-<form action="/" method="get">
-	<button type="submit">Return</button>
-</form>
+		<form action="/" method="get">
+			<button class="btn btn-outline-primary btn-lg btn-block" type="submit">Return</button>
+		</form>
+
+	</div>
 
 </div>
 
