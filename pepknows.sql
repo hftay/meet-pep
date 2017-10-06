@@ -4,7 +4,7 @@ CREATE TABLE users (
 	username VARCHAR (50),
 	email VARCHAR (200),
 	password_digest VARCHAR(400)
-);
+); # in hindsight, would have been good to capture phone num (optional) and user location (for working out nearest games), created_at etc 
 
 CREATE TABLE games (
 	id SERIAL4 PRIMARY KEY,

@@ -9,13 +9,8 @@
 		<div>	<%= @game.description %> </div>
 
 		<%if user_is_creator?%>
-			<form action="/game/<%= @game.id %>/edit" method="get">
-				<button class="btn btn-primary" type="submit">Edit</button>
-			</form>
-
-			<form action="/game/<%= @game.id %>/delete" method="get">
-				<button class="btn btn-primary" type="submit">Delete</button>
-			</form>
+			<a class="btn btn-primary" href="/game/<%= @game.id %>/edit">Edit</a>
+			<a class="btn btn-primary" href="/game/<%= @game.id %>/delete">Delete</a>
 		<%end%>
 
 		<%if logged_in? && !user_already_rsvp? %>

@@ -5,9 +5,10 @@ Project timeframe: 3.5 days
 Project objective:  
 Primary: Build a full-stack database backed application using Sinatra.  
 Secondary: Practise back-end aspect of programming, e.g. data-modeling and the use of object-relational models.
+Link to app: [https://warm-mountain-46889.herokuapp.com/]
 
 The problem:
-- lots of friction (e.g. scheduling, location, mixed games) in organising a social sport event that requires many people (e.g. >10) to participate. difficult for players to find games and vice versa, leading to missed opportunities.
+- currently lots of friction (e.g. scheduling, location, mixed games) in organising a social team sports that requires many people (e.g. >10) to participate. difficult for players to find games and vice versa, leading to missed opportunities.
 - problem can be partially solved by signing up to a season-long league (e.g. via a sports club) however this is a commitment (e.g. weekly) which may not suit everyone. can be difficult to find replacement at moment's notice.
 - keeping track of game stats is a laborious process (usually hand written / excel). this is more of a problem for the numbers/analytical-driven,
 

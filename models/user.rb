@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 	has_many :leagues
 	has_many :leaguestats
 
+	#look up:
+	validates :username, :email, presence: true
+	validates :username, :email, uniqueness: true
+
 
 	has_secure_password # it adds 2 methods to user objects, 
 	#.password is the first method added

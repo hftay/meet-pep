@@ -12,11 +12,9 @@
 		<em>Confirm delete?</em>
 		<form action="/game/<%= @game.id %>/delete" method="post">
 			<input type="hidden" name="_method" value="delete">
-			<button type="submit">Delete</button>
+			<button class="btn btn-primary" type="submit">Delete</button>
 		</form>
-		<form action="/game/<%= @game.id %>" method="get">
-			<button type="submit">Return</button>
-		</form>
+		<a class="btn btn-primary" href="/game/<%= @game.id %>">Return</a>
 	<%end%>
 
 </div>
