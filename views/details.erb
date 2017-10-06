@@ -5,7 +5,7 @@
 		<div> Hosted by: <%= @game.user.username %></div>
 		<div> <%= @game.date.localtime.strftime("%A, %d %b %y, %H:%M") %></div>
 		<div>	<%= @game.venue %> </div>
-		<div> <%= @game.image_url %> </div>
+		<div> <img src="<%= @game.image_url %>" alt=""></div>
 		<div>	<%= @game.description %> </div>
 
 		<%if user_is_creator?%>
