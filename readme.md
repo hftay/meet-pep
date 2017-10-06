@@ -6,8 +6,17 @@ Project objective:
 Primary: Build a full-stack database backed application using Sinatra.  
 Secondary: Practise back-end aspect of programming, e.g. data-modeling and the use of object-relational models.
 
-App summary:
-Pep is a community platform for social sports! (similar to meetup.com but for sports)
+The problem:
+- lots of friction (e.g. scheduling, location, mixed games) in organising a social sport event that requires many people (e.g. >10) to participate. difficult for players to find games and vice versa, leading to missed opportunities.
+- problem can be partially solved by signing up to a season-long league (e.g. via a sports club) however this is a commitment (e.g. weekly) which may not suit everyone. can be difficult to find replacement at moment's notice.
+- keeping track of game stats is a laborious process (usually hand written / excel). this is more of a problem for the numbers/analytical-driven,
+
+The solution:
+- Pep is a community platform for social sports! (similar to meetup.com but for sports). 
+- Pep makes it possible to create a game on your terms and reach a wider audience than would be possible through word of mouth.
+- Pep makes it easier to connect to sports based on your preferences e.g. timing, location, style of play (e.g. mixed games).
+- Pep Stats (in development) allow players to create league tables and compile stats to track their performance. League leaderboards will help with creating friendly competitiveness / help track self-imposed performance targets.
+Also comes with a team randomiser (in progress) to create fair teams based on existing stats. 
 
 Functionalities:
 - User should be able to view all available games (high level)
@@ -32,3 +41,8 @@ Tech used:
 - PostgresSQL
 - RESTful routing
 - Deployed via Heroku
+
+Lessons learned:
+- Using the appropriate data model will make your life much easier 
+- Creating events using time-input can be tricky with different timezones
+- CSS grids and bootstrap is a quick and dirty way to get some basic CSS done 
