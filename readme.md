@@ -5,7 +5,7 @@ Project timeframe: 3.5 days
 ### Project objective:  
 Primary: Build a full-stack database backed application using Sinatra.  
 Secondary: Practise back-end aspect of programming, e.g. data-modeling and the use of object-relational models.  
-**Link to app:** [Meet Pep](https://warm-mountain-46889.herokuapp.com/)
+**Link to app:** [Meet Pep](https://meet-pep.herokuapp.com/)
 
 ### The problem:
 - lots of friction (e.g. scheduling, location, mixed games) in organising a social team sports that requires many people (e.g. >10) to participate. difficult for players to find games and vice versa, leading to missed opportunities.
