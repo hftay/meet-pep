@@ -10,29 +10,29 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg sticky-top">
+	<nav class="navbar navbar-expand-lg sticky-top" style="background-color: white;">
 
 		<!-- navbar image -->
 	  <a class="navbar-brand" href="/about">
-	    <img src="images/goatee_pep.png" width="50" height="50" alt="">
+	    <img src="images/goatee_pep.png" width="30" height="30" alt="">
 	  </a>
 
-		<a class="nav-item nav-link" href="/">Home</a>
+		<a class="nav-item nav-link btn btn-light" href="/">Home</a>
 
 		<%if !logged_in? %>
-			<a class="nav-item nav-link" href="/login">Login</a>
+			<a class="nav-item nav-link btn btn-light" href="/login">Login</a>
 		<%end%>
 		<%if logged_in? %>
-			<a class="nav-item nav-link" href="/create">Create Event</a>
-			<a class="nav-item nav-link" href="/my_games">My Upcoming Events</a>
-			<%= current_user.username %>
+			<a class="nav-item nav-link btn btn-light" href="/create">Create Event</a>
+			<a class="nav-item nav-link btn btn-light" href="/my_games">My Upcoming Events</a>
+			<div class="btn btn-light disabled"><%= current_user.username %></div> 
 			<form class="nav-item nav-link" action="/session" method="post">
 				<input type="hidden" name="_method" value="delete">
-				<button class="btn btn-primary">Logout</button>
+				<button class="btn btn-light">Logout</button>
 			</form>
 		<%end%>
 
-		<a class="nav-item nav-link" href="/stats_home"> Stats (Beta) </a>
+		<!-- <a class="nav-item nav-link" href="/stats_home"> Stats (Beta) </a> -->
 
 	</nav>
 

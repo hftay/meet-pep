@@ -2,52 +2,43 @@
 <div class="create-wrapper">
 
 	<div class="box a">
-		<h1>Tell Pep...</h1>
+		<h1 style="margin-bottom: 20px;">Tell Pep...</h1>
 
 		<form action="/" method="post">
 
 			<div class="form-group row">
 				<label for="title" class="col-sm-2 col-form-label">Title:</label>	
 				<div class="col-sm-10">
-					<input class="form-control" type="text" name="title" placeholder="...the name of the event?">
+					<input class="form-control" type="text" name="title" placeholder="...the name of the event?" required="required">
 				</div>
 
 				<label for="date" class="col-sm-2 col-form-label">Date:</label>	
 				<div class="col-sm-10">
-					<input class="form-control" type="date" name="date" placeholder="">
+					<input class="form-control" type="date" name="date" required="required">
 				</div>
 
 				<label for="time" class="col-sm-2 col-form-label">Time:</label>	
 				<div class="col-sm-10">
-					<input class="form-control" type="time" name="time" placeholder="">
+					<input class="form-control" type="time" name="time" required="required">
 				</div>
 
 				<label for="venue" class="col-sm-2 col-form-label">Venue:</label>	
 				<div class="col-sm-10">
-					<input class="form-control" type="text" name="venue" placeholder="...where's it at?">
+					<input class="form-control" type="text" name="venue" placeholder="...where's it at?" required="required">
 				</div>
 
-				<label for="description" class="col-sm-2 col-form-label">Description:</label>	
-				<div class="col-sm-10">
-					<input class="form-control" type="text" name="description" placeholder="...what is it about?">
-				</div>
-
-				<label for="image_url" class="col-sm-2 col-form-label">Image URL:</label>	
-				<div class="col-sm-10">
-					<input class="form-control" type="text" name="image_url" placeholder="...picture's worth a thousand words?">
+				<label for="description" class="col-sm-4 col-form-label">Description:</label>	
+				<div class="col-sm-12">
+					<textarea class="form-control" name="description" cols="30" rows="3" placeholder="...what is it about?"></textarea>
 				</div>
 
 			</div>
 
-			<br>
-		
-			<button class="btn btn-primary btn-lg btn-block" type="submit">Create</button>
+			<button style="margin-bottom: 10px;" class="btn btn-dark btn-lg btn-block" type="submit">Create</button>
 		</form>
 		
-		<br>
-
 		<form action="/" method="get">
-			<button class="btn btn-outline-primary btn-lg btn-block" type="submit">Return</button>
+			<button class="btn btn-outline-dark btn-lg btn-block" type="submit">Return</button>
 		</form>
 
 	</div>

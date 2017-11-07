@@ -1,5 +1,4 @@
 
-
 <div class="index-wrapper">
 
 
@@ -8,7 +7,7 @@
 		<% @games.each do |game| %>
 				<div class="index-date"> <%= game.date.localtime.strftime("%A, %d %b %y, %H:%M") %> </div>
 				<div> 
-					<a class="index-title" href="/game/<%= game.id %>"> <%= game.title %> </a>
+					<a class="index-title btn btn-light" href="/game/<%= game.id %>"> <%= game.title %> </a>
 					<%= game.venue %> 
 				</div>
 				<hr>
@@ -19,7 +18,7 @@
 		<%if logged_in? %>
 			<h1>You're going to: </h1>
 			<% @rsvps.each do |rsvp| %>
-			  <li> <%= rsvp.game.title %> </li>
+			  <li style="font-size: 0.8em"> <%= rsvp.game.title %> </li>
 			<%end%>
 		<%end%>
 	</div>
@@ -28,7 +27,7 @@
 		<%if logged_in? %>
 			<h1>You're hosting:</h1>
 			<% @hosted.each do |host| %>
-		  	<li> <%= host.title %> </li>
+		  	<li style="font-size: 0.8em"> <%= host.title %> </li>
 			<%end%>
 		<%end%>
 	</div>

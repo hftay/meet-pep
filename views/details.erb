@@ -5,25 +5,25 @@
 		<div> Hosted by: <%= @game.user.username %></div>
 		<div> <%= @game.date.localtime.strftime("%A, %d %b %y, %H:%M") %></div>
 		<div>	<%= @game.venue %> </div>
-		<div> <img src="<%= @game.image_url %>" alt=""></div>
-		<div>	<%= @game.description %> </div>
+		<!-- <div> <img src="<%= @game.image_url %>" alt=""></div> -->
+		<div style="margin-bottom: 20px;">	<%= @game.description %> </div>
 
 		<%if user_is_creator?%>
-			<a class="btn btn-primary" href="/game/<%= @game.id %>/edit">Edit</a>
-			<a class="btn btn-primary" href="/game/<%= @game.id %>/delete">Delete</a>
+			<a class="btn btn-dark" href="/game/<%= @game.id %>/edit">Edit</a>
+			<a class="btn btn-dark" href="/game/<%= @game.id %>/delete">Delete</a>
 		<%end%>
 
 		<%if logged_in? && !user_already_rsvp? %>
 			<form action="/game/<%= @game.id %>" method="post">
 				<input type="hidden" name="_method" value="put">
-				<button class="btn btn-primary" type="submit">Join</button>
+				<button class="btn btn-dark" type="submit">Join</button>
 			</form>
 		<%end%>
 
 		<%if logged_in? && !!user_already_rsvp? %>
 			<form action="/game/<%= @game.id %>" method="post">
 				<input type="hidden" name="_method" value="delete">
-				<button class="btn btn-primary" type="submit">Leave</button>
+				<button class="btn btn-dark" type="submit">Leave</button>
 			</form>
 		<%end%>
 
@@ -34,10 +34,12 @@
 		<div> 
 			<h3>Number of people going: </h3>
 			<h1 style="color: blue; font-size:5em"><%= @rsvps.count %></h1> 
-			<br> 
-			<h3>Who's going?</h3>
+			<!-- <br>  -->
+			<!-- <h3>Who's going?</h3> -->
 			<% @rsvps.each do |rsvp| %>
-				<ul> <li style="font-size: 1.2em"> <%= User.find_by(id: rsvp.user).username %> </li></ul>
+				<span class="badge badge-warning"><%= User.find_by(id: rsvp.user).username %></span>
+
+				<!-- <ul> <li style="font-size: 1.2em"> <%= User.find_by(id: rsvp.user).username %> </li></ul> -->
 			<%end%>
 		</div>
 

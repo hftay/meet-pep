@@ -10,30 +10,30 @@
 
 				<label class="col-sm-3 col-form-label">Username:</label>	
 				<div class="col-sm-9">
-					<input class="form-control" type="text" name="username" placeholder="username">
+					<input class="form-control" type="text" name="username" placeholder="username" required="required">
 				</div>
 
 				<label class="col-sm-3 col-form-label">Email:</label>	
 				<div class="col-sm-9">
-					<input class="form-control" type="text" name="email" placeholder="email address">
+					<input class="form-control" type="email" name="email" placeholder="email address" required="required">
 				</div>
 
 				<label class="col-sm-3 col-form-label">Password:</label>	
 				<div class="col-sm-9">
-					<input class="form-control" type="password" name="password_digest" placeholder="password">
+					<input class="form-control" type="password" name="password_digest" placeholder="password" required="required">
 				</div>
 
 				<label class="col-sm-3 col-form-label"></label>	
 				<div class="col-sm-9">
-					<input class="form-control" type="password" name="verify_password" placeholder="re-enter password">
+					<input class="form-control" type="password" name="verify_password" placeholder="re-enter password" required="required">
 					<br>
 				</div>
 
-				<button class="btn btn-primary btn-lg btn-block" type="submit">Sign Up</button>
+				<button class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
 
 			</div>
 
-			<em style="color: red"> <%= @error_message %> </em>
+			<em style="color: grey"> <%= @error_message %> </em>
 
 		</form>
 

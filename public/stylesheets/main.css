@@ -10,7 +10,7 @@ body {
   background-color: white;
   /*margin-left: 50px;*/
 }
-/* *************** home page grids ***************  */
+/* *************** home/index page grids ***************  */
 
 .index-wrapper {
   display: grid;
@@ -50,6 +50,7 @@ body {
 
 .index-title {
 	font-size: 1.2em;
+  /*color: gold;*/
 }
 
 /* *************** create page grids ***************  */
@@ -70,7 +71,23 @@ body {
 .create-wrapper > .a {
     grid-column-start: 2;
     grid-column-end: 2;
+}
+
+/* *************** user-profile page grids ***************  */
+.user-profile-wrapper {
+  display: grid;
+  grid-template-columns: 0.05fr 1fr 0.05fr;
+}
+
+.box {
+  padding: 20px;
+  font-size: 120%;
+}
+  .a {
+    grid-column-start: 2;
+    grid-column-end: 3;
   }
+  
 /* *************** login page grids ***************  */
 
 .login-wrapper {

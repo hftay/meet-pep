@@ -2,7 +2,7 @@
 
 	<div class="box a">
 
-		<h1>Sign In</h1>
+		<h1>Log In</h1>
 
 		<form action="/session" name="" method="post">
 
@@ -15,17 +15,17 @@
 
 				<label class="col-sm-3 col-form-label">Password:</label>	
 				<div class="col-sm-9">
-					<input class="form-control" type="password" name="password" placeholder="">
-					<br>
+					<input class="form-control" type="password" name="password" placeholder="" style="margin-bottom: 20px;">
+					<!-- <br> -->
 				</div>
 
-				<button class="btn btn-primary btn-lg btn-block" type="submit">LOGIN</button>
+				<em style="color: grey; margin: 0 auto;"> <%= @error_message %> </em>
+				<button class="btn btn-dark btn-lg btn-block" type="submit">LOGIN</button>
 			
 			</div>
 
 		</form>
 
-		<em style="color: grey"> <%= @error_message %> </em>
 
 		<div>Need an account? <a href="/signup">Sign Up</a> </div>
 	

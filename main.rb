@@ -14,8 +14,7 @@ enable :sessions # sinatra feature
 
 helpers do # sinatra feature, create global(?) helpers methods 
 	def current_user
-		User.find_by(id: session[:user_id])
-		# returns user object
+		User.find_by(id: session[:user_id]) # returns user object
 	end
 
 	def logged_in?
@@ -85,7 +84,11 @@ end
 
 get '/signup' do
   @error_message =''
-  erb :signup
+  if logged_in?
+    redirect "/"
+  else
+    erb :signup
+  end
 end
 
 post '/signup' do

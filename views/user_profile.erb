@@ -1,8 +1,14 @@
 
-<h2>Your Upcoming Events</h2>
 
-<% @rsvps.each do |rsvp| %>
-  <div> <%= rsvp.game.date.localtime.strftime("%A, %d %b %y, %H:%M") %> </div>
- 	<div> <%= rsvp.game.title %> </div>
-  <hr>
-<%end%>
+<div class="user-profile-wrapper">
+
+	<div class="box a">
+		<h2 style="margin-bottom: 20px;">Upcoming Events for: <%= current_user.username %></h2>
+		<% @rsvps.each do |rsvp| %>
+		  <div> <%= rsvp.game.date.localtime.strftime("%A, %d %b %y, %H:%M") %> </div>
+		 	<div> <%= rsvp.game.title %> </div>
+		  <hr>
+		<%end%>
+	</div>
+
+</div>
