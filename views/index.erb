@@ -1,35 +1,33 @@
 
 <div class="index-wrapper">
 
-
 	<div class="box a">
 		<h1>Pep's List</h1>
 		<% @games.each do |game| %>
 				<div class="index-date"> <%= game.date.localtime.strftime("%A, %d %b %y, %H:%M") %> </div>
 				<div> 
-					<a class="index-title btn btn-light" href="/game/<%= game.id %>"> <%= game.title %> </a>
-					<%= game.venue %> 
+					<a class="badge badge-dark" href="/game/<%= game.id %>"> <%= game.title %> </a>
+					<span class="badge badge-warning"><%= game.user.username %></span>
+					<span class="badge badge-light"><%= game.venue %> </span>	
 				</div>
 				<hr>
 		<%end%>
 	</div>
 
-	<div class="box b">
-		<%if logged_in? %>
-			<h1>You're going to: </h1>
-			<% @rsvps.each do |rsvp| %>
-			  <li style="font-size: 0.8em"> <%= rsvp.game.title %> </li>
-			<%end%>
-		<%end%>
-	</div>
+	<%if logged_in? %>
+		<div class="box b">
+				<h1>You're going to: </h1>
+				<% @rsvps.each do |rsvp| %>
+				  <li style="font-size: 0.8em"> <%= rsvp.game.title %> </li>
+				<%end%>
+		</div>
 
-	<div class="box c">
-		<%if logged_in? %>
-			<h1>You're hosting:</h1>
-			<% @hosted.each do |host| %>
-		  	<li style="font-size: 0.8em"> <%= host.title %> </li>
-			<%end%>
-		<%end%>
-	</div>
+		<div class="box c">
+				<h1>You're hosting:</h1>
+				<% @hosted.each do |host| %>
+			  	<li style="font-size: 0.8em"> <%= host.title %> </li>
+				<%end%>
+		</div>
+	<%end%>
 
 </div>
