@@ -25,15 +25,13 @@
 
 				<label class="col-sm-3 col-form-label"></label>	
 				<div class="col-sm-9">
-					<input class="form-control" type="password" name="verify_password" placeholder="re-enter password" required="required">
-					<br>
+					<input class="form-control" type="password" name="verify_password" placeholder="re-enter password" required="required" style="margin-bottom: 15px;">
 				</div>
 
+				<em style="color: grey; margin: 0 auto; margin-bottom: 15px;"> <%= @error_message %> </em>
 				<button class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
 
 			</div>
-
-			<em style="color: grey"> <%= @error_message %> </em>
 
 		</form>
 

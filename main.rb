@@ -98,7 +98,12 @@ post '/signup' do
   if params[:password_digest] == params[:verify_password]
     user.password = params[:password_digest]
     user.save
-    redirect "/"
+    if user.save # if username and email is unique
+      redirect "/"
+    else
+      @error_message = "Invalid username or email, please try again"
+      erb :signup
+    end
   else
     @error_message = "Error, please try again"
     erb :signup
