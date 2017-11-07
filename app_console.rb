@@ -6,5 +6,4 @@ require_relative 'models/rsvp'
 require_relative 'models/league'
 require_relative 'models/leaguestat'
 
-binding.pry
 puts 'ready'
