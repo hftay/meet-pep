@@ -1,5 +1,7 @@
 <div class="details-wrapper">
 
+
+
 	<div class="box a">
 		<h3> <%= @game.title %> </h3>
 		<div> Hosted by: <%= @game.user.username %></div>
@@ -39,12 +41,17 @@
 			<% @rsvps.each do |rsvp| %>
 				<span class="badge badge-warning"><%= User.find_by(id: rsvp.user).username %></span>
 
-				<!-- <ul> <li style="font-size: 1.2em"> <%= User.find_by(id: rsvp.user).username %> </li></ul> -->
 			<%end%>
+
 		</div>
 
+		<div id="maptwo" style="width:300px;height:300px; background-color: gold">my map will go here</div>
+	
 	</div>
 
 </div>
 
 
+
+<script src="/javascripts/application.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijWFPCoiUPmD1AcQEeuJa5QZvy8s72Sc&libraries=places&callback=createMap"></script>
