@@ -1,14 +1,21 @@
 # conventions over configuration
 # i know the sql table is named games
+require 'Geocoder'
+
 class Game < ActiveRecord::Base 
+	extend Geocoder::Model::ActiveRecord
+
 	belongs_to :user
 
 	has_many :Rsvps, dependent: :destroy # plural
 
-	def full_street_address
+	def address
 		venue
 	end
 
-	geocoded_by :full_street_address
+  # reverse_geocoded_by :latitude, :longitude
+	geocoded_by :address
+	after_validation :geocode
+
 
 end

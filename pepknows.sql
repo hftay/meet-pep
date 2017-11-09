@@ -20,11 +20,12 @@ CREATE TABLE games (
 	image_url VARCHAR(400),
 	user_id INTEGER,
 	created_at TIMESTAMP
-	lat NUMERIC 
-	lng NUMERIC 	
+	latitude NUMERIC 
+	longitude NUMERIC 	
 );
 -- ALTER TABLE games ALTER date TYPE timestamp WITH time zone;
--- ALTER TABLE games ADD COLUMN lat numeric; 
+-- ALTER TABLE games ADD COLUMN latitude numeric; 
+-- ALTER TABLE games RENAME COLUMN lng TO longitude;
 
 -- Rsvp belong to users and game. rsvp.game
 CREATE TABLE rsvps (

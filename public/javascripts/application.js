@@ -20,7 +20,8 @@ function fillInAddress() {
 
 function createMap(){
   // create a new map
-  var myLatLng = {lat: -37.8, lng: 144.9};
+  // var myLatLng = {lat: -37.8, lng: 144.9};
+  var myLatLng = {lat: game.latitude, lng: game.longitude};
   var mapOptions = {
       center: myLatLng,
       zoom: 15,
