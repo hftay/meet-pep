@@ -1,3 +1,8 @@
+-- SINATRA APP: THIS FILE is NOT like the SCHEMA.rb file in rails app
+-- This pepknows.sql file is not actually necessary. You have to run all the commands in psql. There is no db:seed file like in rails
+-- this .sql file is just a "tracker" so if you end up dropping the pepknows database you don’t have to retype all the table commands by hand. T
+-- The commands here are manually pasted into the postgres terminal!
+-- therefore, when you push to heroku, you will need to do a manual db:dump if you want to keep your database info
 
 CREATE TABLE users (
 	id SERIAL4 PRIMARY KEY,
@@ -14,9 +19,12 @@ CREATE TABLE games (
 	venue VARCHAR (400),
 	image_url VARCHAR(400),
 	user_id INTEGER,
-	created_at TIMESTAMP 
+	created_at TIMESTAMP
+	lat NUMERIC 
+	lng NUMERIC 	
 );
 -- ALTER TABLE games ALTER date TYPE timestamp WITH time zone;
+-- ALTER TABLE games ADD COLUMN lat numeric; 
 
 -- Rsvp belong to users and game. rsvp.game
 CREATE TABLE rsvps (
