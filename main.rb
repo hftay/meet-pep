@@ -1,6 +1,6 @@
      
 require 'sinatra'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require 'pry'
 require 'pg'
 require_relative 'db_config'
@@ -154,6 +154,7 @@ end
 post '/' do
   @game = Game.new
   @game.title = params[:title]
+  # binding.pry
 
   @date = params[:date]
  	@time = params[:time]
