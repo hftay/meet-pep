@@ -2,7 +2,7 @@
 # i know the sql table is named games
 
 
-require 'Geocoder'
+# require 'Geocoder'
 
 class Game < ActiveRecord::Base 
 	extend Geocoder::Model::ActiveRecord
@@ -15,9 +15,9 @@ class Game < ActiveRecord::Base
 		venue
 	end
 
-	geocoded_by :address
+	# geocoded_by :address
   # reverse_geocoded_by :latitude, :longitude
-	after_validation :geocode
+	# after_validation :geocode
 
 
 end
