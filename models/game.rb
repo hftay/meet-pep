@@ -5,7 +5,7 @@ require 'geocoder'
 # require 'Geocoder'
 
 class Game < ActiveRecord::Base 
-	extend geocoder::Model::ActiveRecord
+	# extend geocoder::Model::ActiveRecord
 	extend Geocoder::Model::ActiveRecord
 
 	belongs_to :user
