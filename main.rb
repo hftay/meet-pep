@@ -1,7 +1,9 @@
      
 require 'sinatra'
-require 'sinatra/reloader'
-require 'pry'
+if ENV['RACK_ENV'] != 'production' # because heroku will not load with sinatra reloader
+  require 'sinatra/reloader'
+  require 'pry'
+end
 require 'pg'
 require 'geocoder'
 require_relative 'db_config'
