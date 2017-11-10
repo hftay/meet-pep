@@ -54,6 +54,7 @@ end
 get '/game/:id' do
   @game = Game.find(params[:id])
   @game.geocode # [lat,lon] 
+  # binding.pry
   if @game.geocode
     @lat = @game.geocode[0]
     @lon = @game.geocode[1]

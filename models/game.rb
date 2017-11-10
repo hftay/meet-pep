@@ -15,9 +15,11 @@ class Game < ActiveRecord::Base
 		venue
 	end
 
+  def self.included(base); base.extend(self); end
+
 	geocoded_by :address
   reverse_geocoded_by :latitude, :longitude
-	after_validation :geocode
+	after_validation :geocode, :if => :address_changed?
 
 
 end
