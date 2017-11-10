@@ -13,8 +13,8 @@ class Game < ActiveRecord::Base
 		venue
 	end
 
-  # reverse_geocoded_by :latitude, :longitude
 	geocoded_by :address
+  # reverse_geocoded_by :latitude, :longitude
 	after_validation :geocode
 
 

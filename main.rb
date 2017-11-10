@@ -51,6 +51,11 @@ end
 
 get '/game/:id' do
   @game = Game.find(params[:id])
+  geocoded = Geocoder.coordinates(@game.address) # [lat,lon]
+  if geocoded # if coords can be found
+    @lat = geocoded[0]
+    @lon = geocoded[1]
+  end
   @rsvps = Rsvp.where(game_id: params[:id])
 
   erb :details
