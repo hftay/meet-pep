@@ -2,11 +2,11 @@
 # i know the sql table is named games
 
 require 'geocoder'
-require 'Geocoder'
+# require 'Geocoder'
 
 class Game < ActiveRecord::Base 
-	extend Geocoder::Model::ActiveRecord
 	extend geocoder::Model::ActiveRecord
+	extend Geocoder::Model::ActiveRecord
 
 	belongs_to :user
 
