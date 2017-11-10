@@ -6,6 +6,7 @@ require 'Geocoder'
 
 class Game < ActiveRecord::Base 
 	extend Geocoder::Model::ActiveRecord
+	extend geocoder::Model::ActiveRecord
 
 	belongs_to :user
 
@@ -15,7 +16,9 @@ class Game < ActiveRecord::Base
 		venue
 	end
 
-  def self.included(base); base.extend(self); end
+  def self.included(base)
+  	base.extend(self) 
+  end 
 
 	geocoded_by :address
   reverse_geocoded_by :latitude, :longitude
