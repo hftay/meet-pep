@@ -1,6 +1,9 @@
 # conventions over configuration
 # i know the sql table is named games
 
+
+require 'Geocoder'
+
 class Game < ActiveRecord::Base 
 	extend Geocoder::Model::ActiveRecord
 
