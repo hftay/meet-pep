@@ -39,7 +39,7 @@ get '/' do
   @games = @games.order('date asc')
 
   if logged_in?
-    @rsvps = Rsvp.where(user_id: current_user.id)  # show user's rsvps
+    @rsvps = Rsvp.where(user_id: current_user.id) # show user's rsvps
     @hosted = Game.where(user_id: current_user.id)
     erb :index
   else
@@ -51,11 +51,16 @@ end
 
 get '/game/:id' do
   @game = Game.find(params[:id])
-  geocoded = Geocoder.coordinates(@game.address) # [lat,lon]
-  if geocoded # if coords can be found
-    @lat = geocoded[0]
-    @lon = geocoded[1]
+  @game.geocode # [lat,lon] 
+  if @game.geocode
+    @lat = @game.geocode[0]
+    @lon = @game.geocode[1]
   end
+  # geocoded = Geocoder.coordinates(@game.address) # [lat,lon]
+  # if geocoded # if coords can be found
+  #   @lat = geocoded[0]
+  #   @lon = geocoded[1]
+  # end
   @rsvps = Rsvp.where(game_id: params[:id])
 
   erb :details
