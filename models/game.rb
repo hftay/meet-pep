@@ -2,10 +2,9 @@
 # i know the sql table is named games
 
 require 'geocoder'
-# require 'Geocoder'
+require 'Geocoder'
 
 class Game < ActiveRecord::Base 
-	# extend geocoder::Model::ActiveRecord
 	extend Geocoder::Model::ActiveRecord
 
 	belongs_to :user
@@ -16,13 +15,10 @@ class Game < ActiveRecord::Base
 		venue
 	end
 
-  def self.included(base)
-  	base.extend(self) 
-  end 
-
 	geocoded_by :address
-  reverse_geocoded_by :latitude, :longitude
 	after_validation :geocode, :if => :address_changed?
 
+  # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode  # auto-fetch address
 
 end
