@@ -5,7 +5,6 @@ if ENV['RACK_ENV'] != 'production' # because heroku will not load with sinatra r
   require 'pry'
 end
 require 'pg'
-require 'geocoder'
 require_relative 'db_config'
 require_relative 'models/game'
 require_relative 'models/user'
