@@ -1,7 +1,6 @@
 # conventions over configuration
 # i know the sql table is named games
 
-# require 'geocoder'
 require 'geocoder'
 
 class Game < ActiveRecord::Base 
