@@ -22,12 +22,12 @@
 
 				<label for="time" class="col-sm-2 col-form-label">Time:</label>	
 				<div class="col-sm-10">
-					<input class="form-control" type="text" name="time" value="<%= @game.date.localtime.strftime("%H:%M") %>" required="required">
+					<input class="form-control" type="time" name="time" value="<%= @game.date.localtime.strftime("%H:%M") %>" required="required">
 				</div>		
 
 				<label for="venue" class="col-sm-2 col-form-label">Venue:</label>	
 				<div class="col-sm-10">
-					<input class="form-control" type="text" name="venue" value="<%= @game.venue %>" required="required">
+					<input id="autocomplete" class="form-control" type="text" name="venue" value="<%= @game.venue %>" required="required">
 				</div>
 
 				<label for="description" class="col-sm-4 col-form-label">Description:</label>	
@@ -47,3 +47,6 @@
 	</div>
 
 </div>
+
+<script src="/javascripts/application.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAijWFPCoiUPmD1AcQEeuJa5QZvy8s72Sc&libraries=places&callback=initAutocomplete"></script>

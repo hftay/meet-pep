@@ -54,7 +54,6 @@ get '/game/:id' do
   @game = Game.find(params[:id])
   # geocoded = Geocoder.coordinates(@game.address) # [lat,lon]
   @game.geocode # [lat,lon] 
-  # binding.pry
   if @game.geocode
     @lat = @game.geocode[0]
     @lon = @game.geocode[1]

@@ -18,20 +18,21 @@ function fillInAddress() {
 }
 
 
-function createMap(){
-  // create a new map
-  var myLatLng = {lat: -37.8, lng: 144.9};
-  var mapOptions = {
-      center: myLatLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  var map = new google.maps.Map(document.querySelector("#map"), mapOptions);
+// createMap() is written in details.erb to enable @lat and @lon to be passed 
+// function createMap(){
+//   // create a new map
+//   var myLatLng = {lat: -37.8, lng: 144.9};
+//   var mapOptions = {
+//       center: myLatLng,
+//       zoom: 15,
+//       mapTypeId: google.maps.MapTypeId.ROADMAP
+//   }
+//   var map = new google.maps.Map(document.querySelector("#map"), mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    draggable: true
-    // animation: google.maps.Animation.DROP 
-  });
+//   var marker = new google.maps.Marker({
+//     position: myLatLng,
+//     map: map,
+//     draggable: true,
+//     animation: google.maps.Animation.DROP 
+//   });
 }
