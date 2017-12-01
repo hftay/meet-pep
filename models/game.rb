@@ -15,7 +15,8 @@ class Game < ActiveRecord::Base
 	end
 
 	geocoded_by :address
-	after_validation :geocode, :if => :address_changed?
+	after_validation :geocode
+	# after_validation :geocode, :if => something.address_changed?
 
   # reverse_geocoded_by :latitude, :longitude
   # after_validation :reverse_geocode  # auto-fetch address

@@ -1,4 +1,4 @@
-     
+
 require 'sinatra'
 if ENV['RACK_ENV'] != 'production' # because heroku will not load with sinatra reloader
   require 'sinatra/reloader'
@@ -163,8 +163,7 @@ end
 post '/' do
   @game = Game.new
   @game.title = params[:title]
-  # binding.pry
-
+  
   @date = params[:date]
  	@time = params[:time]
   date_time = DateTime.strptime("#{@date} #{@time} +1100", '%Y-%m-%d %H:%M %z')
