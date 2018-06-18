@@ -14,11 +14,10 @@ function fillInAddress() {
   console.log(place)
   console.log(place.geometry.location.lat())
   console.log(place.geometry.location.lng())
-
 }
 
 
-// createMap() is written in details.erb to enable @lat and @lon to be passed 
+// Note: createMap() is written in details.erb to enable @lat and @lon to be passed 
 // function createMap(){
 //   // create a new map
 //   var myLatLng = {lat: -37.8, lng: 144.9};
